@@ -1,2 +1,26 @@
 syntax = "proto3";
+
 package todo;
+
+service TodoServiceProto {
+    rpc PostTodoProto (PostTodoDTOProto) returns (TodoProto) {}
+    rpc GetTodoProto (EmptyProto) returns (TodosProto) {}
+}
+
+message TodoProto{
+    int32 idP =1;
+    string descriptionP =2;
+    bool isDoneP = 3;
+
+}
+
+message TodosProto{
+    repeated TodoProto TodoP = 1;
+}
+
+message PostTodoDTOProto{
+    string descriptionP =1;
+    bool isDoneP = 2;
+}
+
+message EmptyProto {}
