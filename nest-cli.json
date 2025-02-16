@@ -13,10 +13,12 @@
     "practice-micro-service": {
       "type": "application",
       "root": "apps/practice-micro-service",
-      "entryFile": "main",
-      "sourceRoot": "apps/practice-micro-service/src",
+      "entryFile": "src/main",
+      "sourceRoot": "./",
       "compilerOptions": {
-        "tsConfigPath": "apps/practice-micro-service/tsconfig.app.json"
+        "tsConfigPath": "apps/practice-micro-service/tsconfig.app.json",
+        "assets": ["proto/*.proto"],
+        "watchAssets": true
       }
     },
     "todo": {
