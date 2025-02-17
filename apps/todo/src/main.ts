@@ -9,7 +9,7 @@ async function bootstrap() {
     options:{
       protoPath: join(__dirname, '../todo.proto'),
       package:'todo',
-      url: process.env.TODO_SERVICE_HOST || '50051', // Bind to all interfaces
+      url: `0.0.0.0:${process.env.PORT || 50051}`
 
     }
   });
