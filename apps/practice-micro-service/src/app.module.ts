@@ -13,6 +13,8 @@ import { join } from 'path';
         options: {
           package: 'todo',
           protoPath: join(__dirname, '../todo.proto'),
+          url: process.env.TODO_SERVICE_URL || 'localhost:50051', // Update this
+
         }
 
       }

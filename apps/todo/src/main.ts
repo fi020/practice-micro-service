@@ -8,7 +8,9 @@ async function bootstrap() {
     transport:Transport.GRPC,
     options:{
       protoPath: join(__dirname, '../todo.proto'),
-      package:'todo'
+      package:'todo',
+      url: process.env.TODO_SERVICE_HOST || '0.0.0.0:50051', // Bind to all interfaces
+
     }
   });
 
