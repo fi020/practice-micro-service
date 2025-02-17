@@ -18,4 +18,10 @@ export class AppService {
     return this.todoServiceClint.getTodoProto({})
 
   }
+  addTodo(desc:string,isDone:boolean){
+    return this.todoServiceClint.postTodoProto({
+      descriptionP:desc,
+      isDoneP:isDone,
+    })
+  }
 }

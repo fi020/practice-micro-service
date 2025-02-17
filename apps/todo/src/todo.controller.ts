@@ -7,8 +7,9 @@ import { GrpcMethod } from '@nestjs/microservices';
 @Controller()
 export class TodoController implements TodoServiceProtoController {
   constructor(private readonly todoService: TodoService) { }
+  @GrpcMethod('TodoServiceProto')
   postTodoProto(request: PostTodoDTOProto): Promise<TodoProto> | Observable<TodoProto> | TodoProto {
-    throw new Error('Method not implemented.');
+return this.todoService.addTodo(request)
   }
   @GrpcMethod('TodoServiceProto','getTodoProto')
   getTodoProto(request: EmptyProto): Promise<TodosProto> | Observable<TodosProto> | TodosProto {
