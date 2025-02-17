@@ -18,10 +18,12 @@ export class AppService {
     return this.todoServiceClint.getTodoProto({})
 
   }
-  addTodo(desc:string,isDone:boolean){
+  addTodo(req:{desc:string,isDone:boolean}){
+    console.log(req.desc,req.isDone);
+    
     return this.todoServiceClint.postTodoProto({
-      descriptionP:desc,
-      isDoneP:isDone,
+      descriptionP:req.desc,
+      isDoneP:req.isDone,
     })
   }
 }
