@@ -3,35 +3,36 @@ import { TodoProto, TodosProto } from 'proto/todo';
 
 @Injectable()
 export class TodoService {
-  private todos: TodoProto[]=[
+  private todos: TodoProto[] = [
     {
-      idP:1,
-      descriptionP:"oggy",
-      isDoneP:false
+      idP: 1,
+      descriptionP: "oggy",
+      isDoneP: false
     },
     {
-      idP:1,
-      descriptionP:"oggy",
-      isDoneP:false
+      idP: 2,
+      descriptionP: "jack",
+      isDoneP: true
     }
   ];
-  getTodos():TodosProto{
-    return {TodoP: this.todos}
+  getTodos(): TodosProto {
+    return { TodoP: this.todos }
   }
-  addTodo(a):TodoProto{
-    console.log(a);
-    
+  addTodo(request): TodoProto {
+    console.log(request);
 
-    const todo:TodoProto = {
-descriptionP:a.descriptionP,
-idP:3,
-isDoneP:a.isDoneP
-    }
+    const nextId = this.todos.length > 0 ? Math.max(...this.todos.map(todo => todo.idP)) + 1 : 1;
+  
+    const todo: TodoProto = {
+      idP: nextId,
+      descriptionP: request.descriptionP,
+      isDoneP: request.isDoneP
+    };
+  
+    this.todos.push(todo);
     return todo;
 
     // return {TodoP: this.todos}
   }
-  getHello(): string {
-    return 'Hello World!';
-  }
+
 }
