@@ -1,11 +1,11 @@
-[phases.setup]
-nixPkgs = ["nodejs_18"]
-
-[phases.install]
-cmds = ["npm ci --legacy-peer-deps"]
-
 [phases.build]
-cmds = ["npm run build"]
-
-[start]
-cmd = "npm run start"
+cmds = [
+  "echo '🚀 Starting Build Process...'",
+  "rm -rf node_modules package-lock.json",
+  "echo '📦 Installing Dependencies with Legacy Peer Deps...'",
+  "npm ci --legacy-peer-deps || { echo '❌ npm install failed' && exit 1; }",
+  "echo '✅ Dependencies Installed Successfully!'",
+  "echo '🔧 Running Build Process...'",
+  "npm run build || { echo '❌ Build failed' && exit 1; }",
+  "echo '🎉 Build Completed Successfully!'"
+]
