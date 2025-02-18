@@ -1,3 +1,9 @@
+[providers]
+# Example of adding a custom provider if needed
+# You can specify auto-detected providers or include a custom one (replace 'custom_provider' with your actual provider name).
+# "..." includes auto-detected providers
+providers = ["...", "nodejs"]
+
 [phases.build]
 cmds = [
   "echo '🚀 Starting Build Process...'",
