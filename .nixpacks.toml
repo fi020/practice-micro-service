@@ -1,17 +1,7 @@
-[providers]
-# Example of adding a custom provider if needed
-# You can specify auto-detected providers or include a custom one (replace 'custom_provider' with your actual provider name).
-# "..." includes auto-detected providers
-providers = ["...", "nodejs"]
-
+[phases]
 [phases.build]
-cmds = [
-  "echo '🚀 Starting Build Process...'",
-  "rm -rf node_modules package-lock.json",
-  "echo '📦 Installing Dependencies with Legacy Peer Deps...'",
-  "npm ci --legacy-peer-deps || { echo '❌ npm install failed' && exit 1; }",
-  "echo '✅ Dependencies Installed Successfully!'",
-  "echo '🔧 Running Build Process...'",
-  "npm run build || { echo '❌ Build failed' && exit 1; }",
-  "echo '🎉 Build Completed Successfully!'"
-]
+cmds = ["rm -rf node_modules package-lock.json", "npm ci --legacy-peer-deps", "npm run build"]
+
+[providers]
+# If you are using npm, you can specify the provider
+["npm"]

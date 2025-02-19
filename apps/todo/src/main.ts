@@ -9,7 +9,6 @@ async function bootstrap() {
     options:{
       protoPath: join(__dirname, '../todo.proto'),
       package:'todo',
-      url: `0.0.0.0:${process.env.PORT || 50051}`
 
     }
   });
